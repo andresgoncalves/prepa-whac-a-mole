@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+
+  --rows: 5;
+  --cols: 5;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header__title {
+  font-size: 32px;
+}
+
+.header__hit-count {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.game__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 32px;
+}
+
+.game__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 48px);
+  grid-template-rows: repeat(var(--rows), 48px);
+}
+
+.game__cell {
+  position: relative;
+}
+
+.game__cell::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game__cell--hit::after {
+  content: '';
+
+  width: 50%;
+  height: 50%;
+  background-color: yellow;
+}
+
+.game__cell--mole::after {
+  content: '';
+
+  width: 50%;
+  height: 50%;
+  background-color: brown;
+  border-radius: 9999px;
+}
+
+.game__cell:nth-child(odd) {
+  background-color: green;
+}
+
+.game__cell:nth-child(even) {
+  background-color: greenyellow;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.actions__button {
+  padding: 16px 24px;
+  font-size: 20px;
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.actions__button--secondary {
+  padding: 16px 24px;
+  font-size: 20px;
+  color: black;
+  background-color: lightgray;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
